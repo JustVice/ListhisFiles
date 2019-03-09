@@ -1,6 +1,6 @@
 package UI;
 
-import Logic.ReadFiles;
+import Logic.ListhisFiles_run;
 import Logic.Static;
 
 public class DefaultFrame extends javax.swing.JFrame {
@@ -8,12 +8,15 @@ public class DefaultFrame extends javax.swing.JFrame {
     public DefaultFrame() {
         initComponents();
         settings();
+        jRadioButton5_open_after_run.setEnabled(false);
     }
+    
+     // <editor-fold desc="Settings">
 
     private void settings() {
         setIconImage(Static.getIconImage());
         this.setLocationRelativeTo(null);
-        this.setTitle(Static.program_name + ". Version: " + Static.version);
+        this.setTitle(Static.program_name + ". V: " + Static.version);
         jRadioButton1_print_for_normal_txt.setSelected(Static.data.getUserData().getPrint_for_normal());
         jRadioButton2_print_for_notepad.setSelected(Static.data.getUserData().getPrint_for_notepad());
         jRadioButton3_scan_files.setSelected(Static.data.getUserData().getScan_files());
@@ -23,7 +26,7 @@ public class DefaultFrame extends javax.swing.JFrame {
         //file_type_normal_or_notepad();
     }
 
-    // <editor-fold desc="Radio buttons settings">
+   
     private void scan_buttons_control() {
         if (!jRadioButton3_scan_files.isSelected() && !jRadioButton4_scan_folders.isSelected()) {
             try {
@@ -57,6 +60,7 @@ public class DefaultFrame extends javax.swing.JFrame {
         jRadioButton5_open_after_run = new javax.swing.JRadioButton();
         jButton2_run_program = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -162,15 +166,23 @@ public class DefaultFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Main", jPanel1);
 
+        jLabel1.setText("Made by Just Vice");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 296, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1)
+                .addContainerGap(180, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 169, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabel1)
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("About", jPanel2);
@@ -181,13 +193,13 @@ public class DefaultFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 286, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 157, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -235,7 +247,7 @@ public class DefaultFrame extends javax.swing.JFrame {
     //</editor-fold>
     
     private void jButton2_run_programActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_run_programActionPerformed
-        //ReadFiles readFiles = new ReadFiles(System.getProperty("user.dir"),jRadioButton3_scan_files.isSelected(),jRadioButton4_scan_folders.isSelected());
+        ListhisFiles_run ltfr = new ListhisFiles_run(jRadioButton3_scan_files.isSelected(),jRadioButton4_scan_folders.isSelected(),jRadioButton1_print_for_normal_txt.isSelected());
     }//GEN-LAST:event_jButton2_run_programActionPerformed
 
     
@@ -244,6 +256,7 @@ public class DefaultFrame extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2_run_program;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton jRadioButton1_print_for_normal_txt;
