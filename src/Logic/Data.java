@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
 public class Data {
 
     private UserData userData = new UserData();
+    
+    //<editor-fold desc="Class content">
 
     /**
      * Fills the list_dir with the current data storaged on hard drive, also the
@@ -110,5 +112,7 @@ public class Data {
         JOptionPane.showMessageDialog(null, message, "NOT COMPATIBLE", 0);
         System.exit(0);
     }
+    
+    //</editor-fold>
 
 }

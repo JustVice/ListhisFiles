@@ -5,7 +5,7 @@ import java.awt.Toolkit;
 
 public class Static {
 
-    public static String program_name = "ListhisFiles", version = "PA 1.1";
+    public static String program_name = "ListhisFiles", version = "Beta 0.3";
     public static String folderForDataName = "ListhisFiles";
     public static String globalFolderForData = "Just Vice";
     public static String DataPath = System.getenv("APPDATA") + "\\" + globalFolderForData + "\\" + folderForDataName + "\\UserData.txt";

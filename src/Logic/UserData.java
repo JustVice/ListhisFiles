@@ -1,4 +1,3 @@
-
 package Logic;
 
 import java.io.Serializable;
@@ -6,14 +5,13 @@ import java.io.Serializable;
 public class UserData implements Serializable {
 
     private static final long serialVersionUID = 3934850892384098147L;
-    
-    public Boolean print_for_normal = true,print_for_notepad = false,open_file_aften_run = true,scan_files = true,_scan_folders = false; 
+
+    public Boolean print_for_normal = true, print_for_notepad = false, open_file_aften_run = true, scan_files = true, _scan_folders = false;
 
     public UserData() {
     }
 
     //<editor-fold desc="GET AND SET">
-    
     public Boolean getPrint_for_normal() {
         return print_for_normal;
     }
@@ -53,7 +51,7 @@ public class UserData implements Serializable {
     public void setScan_folders(Boolean _scan_folders) {
         this._scan_folders = _scan_folders;
     }
-    
+
     //</editor-fold>
-    
+
 }

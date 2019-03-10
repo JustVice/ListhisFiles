@@ -2,10 +2,12 @@ package Logic;
 
 import UI.DefaultFrame;
 import UI.Test_room;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 
 public class Run {
 
@@ -45,6 +47,41 @@ public class Run {
             escritura.close();
         } catch (Exception ex) {
             System.out.println("Error\n" + ex);
+        }
+    }
+    
+        public static void openFile(String file_path) {
+        try {
+            Desktop.getDesktop().open(new File(file_path));
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+        
+        /**
+     * 0=Error 1=Message 2=Alert 3=What
+     *
+     * @param type
+     * @param message
+     * @param title
+     */
+    public void message(String message, String title, int type) {
+        switch (type) {
+            case 0:/*Error*/
+                JOptionPane.showMessageDialog(null, message, title, 0);
+                break;
+            case 1:/*Message*/
+                JOptionPane.showMessageDialog(null, message, title, 1);
+                break;
+            case 2:/*Alert*/
+                JOptionPane.showMessageDialog(null, message, title, 2);
+                break;
+            case 3:/*What*/
+                JOptionPane.showMessageDialog(null, message, title, 3);
+                break;
+
+            default:
+                throw new AssertionError();
         }
     }
 

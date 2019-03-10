@@ -8,7 +8,6 @@ public class DefaultFrame extends javax.swing.JFrame {
     public DefaultFrame() {
         initComponents();
         settings();
-        jRadioButton5_open_after_run.setEnabled(false);
     }
     
      // <editor-fold desc="Settings">
@@ -23,6 +22,9 @@ public class DefaultFrame extends javax.swing.JFrame {
         jRadioButton4_scan_folders.setSelected(Static.data.getUserData().getScan_folders());
         jRadioButton5_open_after_run.setSelected(Static.data.getUserData().getOpen_file_aften_run());
         scan_buttons_control();
+        //jRadioButton5_open_after_run.setEnabled(false);
+        jRadioButton1_print_for_normal_txt.setEnabled(false);
+        jRadioButton2_print_for_notepad.setEnabled(false);
         //file_type_normal_or_notepad();
     }
 
@@ -65,7 +67,7 @@ public class DefaultFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         buttonGroup1.add(jRadioButton1_print_for_normal_txt);
-        jRadioButton1_print_for_normal_txt.setText("Print for normal txt file");
+        jRadioButton1_print_for_normal_txt.setText("Print for Notepad");
         jRadioButton1_print_for_normal_txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1_print_for_normal_txtActionPerformed(evt);
@@ -73,7 +75,7 @@ public class DefaultFrame extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(jRadioButton2_print_for_notepad);
-        jRadioButton2_print_for_notepad.setText("Print for Notepad");
+        jRadioButton2_print_for_notepad.setText("Print for Notepad++");
         jRadioButton2_print_for_notepad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton2_print_for_notepadActionPerformed(evt);
@@ -120,48 +122,41 @@ public class DefaultFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton1_print_for_normal_txt)
+                    .addComponent(jRadioButton2_print_for_notepad)
+                    .addComponent(jRadioButton5_open_after_run)
+                    .addComponent(jRadioButton3_scan_files)
+                    .addComponent(jRadioButton4_scan_folders))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1_print_for_normal_txt)
-                            .addComponent(jRadioButton2_print_for_notepad))
-                        .addGap(120, 120, 120))
-                    .addComponent(jRadioButton5_open_after_run, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(37, 37, 37)
-                            .addComponent(jButton2_run_program))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(23, 23, 23)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton1)
-                                .addComponent(jRadioButton3_scan_files)
-                                .addComponent(jRadioButton4_scan_folders)))))
-                .addGap(283, 283, 283))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2_run_program))
+                .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton1_print_for_normal_txt)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton2_print_for_notepad)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jRadioButton3_scan_files))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton1_print_for_normal_txt)
-                            .addComponent(jButton1))
+                        .addComponent(jRadioButton3_scan_files)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton2_print_for_notepad)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton5_open_after_run)
-                            .addComponent(jRadioButton4_scan_folders))))
-                .addGap(18, 18, 18)
-                .addComponent(jButton2_run_program)
-                .addContainerGap(15, Short.MAX_VALUE))
+                        .addComponent(jRadioButton4_scan_folders))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jButton2_run_program)))
+                .addGap(21, 21, 21)
+                .addComponent(jRadioButton5_open_after_run)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Main", jPanel1);
@@ -175,7 +170,7 @@ public class DefaultFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,14 +187,12 @@ public class DefaultFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1)
         );
 
         pack();
@@ -247,7 +240,7 @@ public class DefaultFrame extends javax.swing.JFrame {
     //</editor-fold>
     
     private void jButton2_run_programActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_run_programActionPerformed
-        ListhisFiles_run ltfr = new ListhisFiles_run(jRadioButton3_scan_files.isSelected(),jRadioButton4_scan_folders.isSelected(),jRadioButton1_print_for_normal_txt.isSelected());
+        ListhisFiles_run ltfr = new ListhisFiles_run(jRadioButton3_scan_files.isSelected(),jRadioButton4_scan_folders.isSelected(),jRadioButton1_print_for_normal_txt.isSelected(),jRadioButton5_open_after_run.isSelected());
     }//GEN-LAST:event_jButton2_run_programActionPerformed
 
     
