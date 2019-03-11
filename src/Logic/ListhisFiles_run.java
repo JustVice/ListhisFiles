@@ -9,14 +9,18 @@ public class ListhisFiles_run {
     private LinkedList<String> list_ready = new LinkedList<String>();
 
     //<editor-fold desc="Construcctor Run">
-    public ListhisFiles_run(boolean files, boolean dirs, boolean normal_txt, boolean open_file_after_buildTxtFile) {
+    public ListhisFiles_run(boolean files, boolean dirs, boolean open_file_after_buildTxtFile) {
         File file = new File(Static.mother_path);
         String[] raw_list_of_names = file.list();
 
         if (files && dirs) {
             System.out.println("Files and dirs");
             for (int i = 0; i < raw_list_of_names.length; i++) {
-                list_ready.add(raw_list_of_names[i]);
+                if (!raw_list_of_names[i].equals(Static.txt_file_with_results + ".txt") && !raw_list_of_names[i].equals(Static.program_name + ".jar")) {
+                    list_ready.add(raw_list_of_names[i]);
+                } else {
+                    System.out.println("bad key found");
+                }
             }
         }
 
@@ -28,7 +32,11 @@ public class ListhisFiles_run {
                 File file_review = new File(path_review);
                 if (file_review.isFile()) {
                     //System.out.println("File name: " + raw_list_of_names[i]);
-                    list_ready.add(raw_list_of_names[i]);
+                    if (!raw_list_of_names[i].equals(Static.txt_file_with_results + ".txt") && !raw_list_of_names[i].equals(Static.program_name + ".jar")) {
+                        list_ready.add(raw_list_of_names[i]);
+                    } else {
+                        System.out.println("bad key found");
+                    }
                 }
             }
         }
@@ -46,31 +54,16 @@ public class ListhisFiles_run {
             }
         }
 
-            //System.out.println("lorem 2: " + Static.program_name + ".jar");
-            for (int i = 0; i < list_ready.size(); i++) {
-                System.out.println("testing: " + list_ready.get(i));
-                //System.out.println("Lorem: "+ Static.txt_file_with_results + ".txt");
-                if (list_ready.get(i).equals(Static.txt_file_with_results + ".txt")) {
-                    //Static.run.message("remove", "remove", 1);
-                    System.out.println("remove");
-                    list_ready.remove(i);
-                }
-                if (list_ready.get(i).equals(Static.program_name + ".jar")) {
-                    //Static.run.message("remove", "remove", 1);
-                    System.out.println("remove");
-                    list_ready.remove(i);
-                }
-            }
-        
-        Static.run.BuildTxtFile(Static.mother_path, Static.txt_file_with_results, ".txt", renderText_builder(normal_txt));
+        Static.run.BuildTxtFile(Static.mother_path, Static.txt_file_with_results, ".txt", renderText_builder());
         if (open_file_after_buildTxtFile) {
             Static.run.openFile(Static.mother_path + "//" + Static.txt_file_with_results + ".txt");
         }
     }
 
     //</editor-fold>
+    
     //<editor-fold desc="Methods">
-    private String renderText_builder(boolean normal_txt) {
+    private String renderText_builder() {
         for (int i = 0; i < list_ready.size(); i++) {
             if (i + 1 != list_ready.size()) {
                 render_text += list_ready.get(i) + "\r\n";
@@ -113,6 +106,25 @@ public class ListhisFiles_run {
 
         }
         Static.run.BuildTxtFile("here", "ListhisFiles results", ".txt", render_text);
+    }
+
+    private void oldMethodToDeleteListhisFilesNamesFrom_render_list() {
+        //Placed just before BuildTxtFile from Run method.
+        //System.out.println("lorem 2: " + Static.program_name + ".jar");
+        for (int i = 0; i < list_ready.size(); i++) {
+            System.out.println("testing: " + list_ready.get(i));
+            //System.out.println("Lorem: "+ Static.txt_file_with_results + ".txt");
+            if (list_ready.get(i).equals(Static.txt_file_with_results + ".txt")) {
+                //Static.run.message("remove", "remove", 1);
+                System.out.println("remove");
+                list_ready.remove(i);
+            }
+            if (list_ready.get(i).equals(Static.program_name + ".jar")) {
+                //Static.run.message("remove", "remove", 1);
+                System.out.println("remove");
+                list_ready.remove(i);
+            }
+        }
     }
 
     //</editor-fold>

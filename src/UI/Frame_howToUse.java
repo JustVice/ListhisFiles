@@ -45,7 +45,7 @@ public class Frame_howToUse extends javax.swing.JFrame implements KeyListener {
 
         jLabel1.setText("This is still a BETA. Bugs can be spotted.");
 
-        jLabel2.setText("<html>Place the program at the same folder where you want to<br/>\ngenerate the .txt file with the list.<br/>\n<br/>\nWhat this program do is to generate a .txt file with the names of all <br/>\nthe programs/folders inside of where you placed it.</html>");
+        jLabel2.setText("<html>Place the program at the same folder where you want to<br/>\ngenerate the .txt file with the list.<br/>\n<br/>\nWhat this program does is to generate a .txt file with the names of all <br/>\nthe programs/folders inside of where you placed it.</html>");
 
         jLabel3.setText("or ESC");
 
@@ -62,7 +62,7 @@ public class Frame_howToUse extends javax.swing.JFrame implements KeyListener {
                         .addComponent(jLabel3))
                     .addComponent(jLabel1)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
