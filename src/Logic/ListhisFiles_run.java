@@ -45,12 +45,18 @@ public class ListhisFiles_run {
                 }
             }
         }
-
+System.out.println("lorem 2: " + Static.program_name + ".jar");
         for (int i = 0; i < list_ready.size(); i++) {
-            //System.out.println("testing: " + list_ready.get(i));
+            System.out.println("testing: " + list_ready.get(i));
             //System.out.println("Lorem: "+ Static.txt_file_with_results + ".txt");
-            if (list_ready.get(i).equals(Static.txt_file_with_results + ".txt") || list_ready.get(i).equals(Static.program_name + ".jar")) {
+            if (list_ready.get(i).equals(Static.txt_file_with_results + ".txt")){
                 //Static.run.message("remove", "remove", 1);
+                System.out.println("remove");
+                list_ready.remove(i);
+            }
+            if (list_ready.get(i).equals(Static.program_name + ".jar")) {
+                //Static.run.message("remove", "remove", 1);
+                System.out.println("remove");
                 list_ready.remove(i);
             }
         }

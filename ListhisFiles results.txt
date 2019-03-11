@@ -1,6 +1,10 @@
 .git
+.gitignore
 build
+build.xml
 dist
+manifest.mf
 nbproject
+README.md
 src
 test
