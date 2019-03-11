@@ -2,6 +2,13 @@ package UI;
 
 import Logic.ListhisFiles_run;
 import Logic.Static;
+import java.awt.Desktop;
+import java.awt.Frame;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DefaultFrame extends javax.swing.JFrame {
 
@@ -63,6 +70,8 @@ public class DefaultFrame extends javax.swing.JFrame {
         jButton2_run_program = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        logo_label = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -163,21 +172,42 @@ public class DefaultFrame extends javax.swing.JFrame {
 
         jLabel1.setText("Made by Just Vice");
 
+        logo_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconLogo.png"))); // NOI18N
+
+        jLabel2.setText("<html><a href=\"\">Click here for more.<a/></html>");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(logo_label)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel1)))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jLabel1)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(logo_label))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
 
         jTabbedPane1.addTab("About", jPanel2);
@@ -243,13 +273,26 @@ public class DefaultFrame extends javax.swing.JFrame {
         ListhisFiles_run ltfr = new ListhisFiles_run(jRadioButton3_scan_files.isSelected(),jRadioButton4_scan_folders.isSelected(),jRadioButton1_print_for_normal_txt.isSelected(),jRadioButton5_open_after_run.isSelected());
     }//GEN-LAST:event_jButton2_run_programActionPerformed
 
-    
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        openLink("https://justvice.wixsite.com/info");
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void openLink(String link){
+    if (Desktop.isDesktopSupported()) {
+            try {
+                Desktop.getDesktop().browse(new URI(link));
+            } catch (URISyntaxException | IOException ex) {
+                Logger.getLogger(Frame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2_run_program;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton jRadioButton1_print_for_normal_txt;
@@ -258,5 +301,6 @@ public class DefaultFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton4_scan_folders;
     private javax.swing.JRadioButton jRadioButton5_open_after_run;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel logo_label;
     // End of variables declaration//GEN-END:variables
 }
