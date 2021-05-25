@@ -152,7 +152,7 @@ public class DefaultFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Main", jPanel1);
 
-        jLabel1.setText("Made by Just Vice");
+        jLabel1.setText("Made by SPLIT VICE");
 
         logo_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconLogo.png"))); // NOI18N
 
@@ -175,7 +175,7 @@ public class DefaultFrame extends javax.swing.JFrame {
                         .addComponent(logo_label)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel1)))
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,7 +242,7 @@ public class DefaultFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2_run_programActionPerformed
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        openLink("https://justvice.wixsite.com/info");
+        openLink("http://split-vice.com");
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void openLink(String link){
